@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes da Atividade</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Detalhes da Atividade</h1>
+    <p><strong>ID:</strong> {{ atividade.id_atividade }}</p>
+    <p><strong>Disciplina:</strong> {{ atividade.id_disciplina }}</p>
+    <p><strong>Enunciado:</strong> {{ atividade.enunciado }}</p>
+    <h2>Respostas</h2>
+    <ul>
+        {% for resposta in atividade.respostas %}
+        <li>
+            <strong>ID do Aluno:</strong> {{ resposta.id_aluno }}<br>
+            <strong>Resposta:</strong> {{ resposta.resposta }}<br>
+            <strong>Nota:</strong> {{ resposta.nota }}
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('atividades.formulario_editar_atividade', id_atividade=atividade.id_atividade) }}">Editar</a>
+    <a href="{{ url_for('atividades.obter_lista_atividades') }}">Voltar para a Lista de Atividades</a>
+</body>
+</html>

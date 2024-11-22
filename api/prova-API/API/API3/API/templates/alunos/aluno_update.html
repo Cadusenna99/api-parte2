@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atualizar Aluno</title>
+</head>
+
+<body>
+  <h1>Atualizar Aluno</h1>
+  <form action="{{ url_for('alunos.salvar_atualizacao_aluno', aluno_id=aluno.id) }}" method="POST">
+    <input type="hidden" name="_method" value="PUT">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" value="{{ aluno.nome }}">
+    <button type="submit">Atualizar</button>
+  </form>
+
+  <a href="{{ url_for('alunos.mostrar_aluno', aluno_id=aluno.id) }}">Cancelar</a> <!-- Adicionado link para cancelar -->
+</body>
+
+</html>

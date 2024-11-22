@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalhes do Aluno</title>
+  <link rel="stylesheet" href="/styles/global.css">
+  <link rel="stylesheet" href="/styles/reset.css">
+</head>
+
+<body>
+  <h1>Detalhes do Aluno</h1>
+  <p><strong>ID:</strong> {{ aluno.id }}</p>
+  <p><strong>Nome:</strong> {{ aluno.nome }}</p>
+
+  <form action="{{ url_for('alunos.excluir_aluno_por_id', aluno_id=aluno.id) }}" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit">Deletar Aluno</button> <!-- Corrigido para botão -->
+  </form>
+
+  <a href="{{ url_for('alunos.formulario_editar_aluno', aluno_id=aluno.id) }}">Editar Aluno</a>
+  <a href="{{ url_for('alunos.obter_lista_alunos') }}">Voltar para a lista de alunos</a>
+</body>
+
+</html>

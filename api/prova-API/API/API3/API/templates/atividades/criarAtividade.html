@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Nova Atividade</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Adicionar Nova Atividade</h1>
+    <form action="{{ url_for('atividades.criar_atividade') }}" method="POST">
+        <label for="id_disciplina">Disciplina:</label>
+        <input type="number" id="id_disciplina" name="id_disciplina" required><br>
+        <label for="enunciado">Enunciado:</label>
+        <textarea id="enunciado" name="enunciado" required></textarea><br>
+        <button type="submit">Criar</button>
+    </form>
+    <a href="{{ url_for('atividades.obter_lista_atividades') }}">Voltar para a Lista de Atividades</a>
+</body>
+</html>

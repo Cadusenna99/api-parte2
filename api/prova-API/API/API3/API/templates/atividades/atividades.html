@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Atividades</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Lista de Atividades</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Disciplina</th>
+                <th>Enunciado</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for atividade in atividades %}
+            <tr>
+                <td>{{ atividade.id_atividade }}</td>
+                <td>{{ atividade.id_disciplina }}</td>
+                <td>{{ atividade.enunciado }}</td>
+                <td>
+                    <a href="{{ url_for('atividades.mostrar_atividade', id_atividade=atividades.id_atividade) }}">Ver Detalhes</a>
+                    <a href="{{ url_for('atividades.formulario_editar_atividade', id_atividade=atividades.id_atividade) }}">Editar</a>
+                    <form action="{{ url_for('atividades.deletar_atividade', id_atividade=atividades.id_atividade) }}" method="POST" style="display:inline;">
+                        <button type="submit">Excluir</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('atividades.formulario_nova_atividade') }}">Adicionar Nova Atividade</a>
+</body>
+</html>

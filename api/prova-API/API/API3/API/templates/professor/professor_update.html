@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Professor</title>
+</head>
+
+<body>
+  <h1>Editar Professor</h1>
+  <form action="{{ url_for('professores.atualizar_professor_dados', professor_id=professor.id) }}" method="POST">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" value="{{ professor.nome }}" required>
+
+    <label for="idade">Idade:</label>
+    <input type="number" id="idade" name="idade" value="{{ professor.idade }}" required>
+
+    <label for="materia">Matéria:</label>
+    <input type="text" id="materia" name="materia" value="{{ professor.materia }}" required>
+
+    <label for="observacoes">Observações:</label>
+    <textarea id="observacoes" name="observacoes">{{ professor.observacoes }}</textarea>
+
+    <button type="submit">Atualizar Professor</button>
+  </form>
+
+  <a href="{{ url_for('professores.visualizar_professores') }}">Voltar à Lista de Professores</a>
+</body>
+
+</html>
